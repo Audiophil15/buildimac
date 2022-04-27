@@ -1,4 +1,7 @@
 <div>
+	
+	<a href="element/add">Add element</a>
+
 	<?php
 	foreach ($elements as $element) { ?>
 
