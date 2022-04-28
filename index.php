@@ -6,7 +6,6 @@ require("controllers/ElementController.php");
 
 
 $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
-$controller = new ElementController();
 
 if(isset($urlParams[2]) && $urlParams[2] == "element"){
 	$controller = new ElementController();
@@ -35,4 +34,4 @@ if(isset($urlParams[2]) && $urlParams[2] == "element"){
 }
 ?>
 
-<a href ="/buildimac/element">elements</a>
+<a href ="./element">elements</a>

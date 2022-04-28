@@ -4,7 +4,7 @@ require_once("config/config.php");
 
 class Model{
 
-	private $connexion;
+	protected $connexion;
 	public $table;
 	public $idName;
 
@@ -36,26 +36,6 @@ class Model{
         $query = $this->connexion->prepare($sql);
         $query->execute(array($id));
         return $query;
-
-	}
-
-	//récupérer une entrée de la table grâce à l'id, 3 requêtes delete car il y a des foraign keys
-	public function delete(int $id){
-
-		$sql = "DELETE FROM `rela_house_element` WHERE `Id_E`= ?  ; 
-				DELETE FROM `rela_indicator_element` WHERE `Id_E`= ? ; 
-				DELETE FROM `element` WHERE `Id_E`= ? " ; 
-        $query = $this->connexion->prepare($sql);
-        $query->execute(array($id, $id, $id));
-
-	}
-
-	//récupérer une entrée de la table grâce à l'id
-	public function add($array){
-
-		$sql = "INSERT INTO ELEMENT (Name_E, Image_E, Description_E, Id_type) VALUES (?, ? , ? , ?); ";
-        $query = $this->connexion->prepare($sql);
-        $query->execute(array($array[0], $array[1], $array[2], $array[3]));
 
 	}
 
