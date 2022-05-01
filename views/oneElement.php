@@ -2,6 +2,7 @@
 	<?php
 	foreach ($elements as $element) { ?>
 
+		<img src=<?= $element['Image_E'] ?>>
 
 		<h3><?= $element['Name_E'] ?></h3>
 
