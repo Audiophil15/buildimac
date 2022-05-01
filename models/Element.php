@@ -14,6 +14,7 @@ class Element extends Model
 		parent::__construct();
 		$this->table = "element";
 		$this->idName = "Id_E";
+		$this->idType = "Id_type";
 	}
 
 	//récupérer une entrée de la table grâce à l'id, 3 requêtes delete car il y a des foraign keys

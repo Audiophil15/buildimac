@@ -7,8 +7,8 @@ require("controllers/ElementController.php");
 
 $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
 
+$controller = new ElementController();
 if(isset($urlParams[2]) && $urlParams[2] == "element"){
-	$controller = new ElementController();
 	//Supprimer un élément
 	if( isset($urlParams[4]) && $urlParams[3] == "delete"){
 		$controller->delete_element($urlParams[4]);
@@ -32,6 +32,21 @@ if(isset($urlParams[2]) && $urlParams[2] == "element"){
 	}
 
 }
+else 
+{
+if(isset($urlParams[2]) && $urlParams[2] == "types"){
+	// $controller = new ElementController();
+
+	if ( isset($urlParams[3])){
+		$controller->types($urlParams[3]);
+	}
+	else{
+		$controller->index();
+	}
+}
+}
+
+
 ?>
 
-<a href ="/buildimac/element">elements</a>
+<a href ="./element">elements</a>

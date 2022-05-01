@@ -2,48 +2,59 @@
 
 class ElementController extends Controller{
 
-    public $orderId = "Id_type";
+	public $orderId = "Id_type";
 
-    public function index(){
+	public function index(){
 
-        $this->loadModel("Element");
-        $elements = $this->Element->getAll($this->orderId);
+		$this->loadModel("Element");
+		$elements = $this->Element->getAll($this->orderId);
 
-        $this->view('layout/header.php', ['title' => 'Elements']);
-        $this->view('allElements.php', compact('elements')); //compact transforme la requête sql en un tableau associatif
-        $this->view('layout/footer.php');
+		$this->view('layout/header.php', ['title' => 'Elements']);
+		$this->view('allElements.php', compact('elements')); //compact transforme la requête sql en un tableau associatif
+		$this->view('layout/footer.php');
 	
-    }
+	}
 
-    public function delete_element(int $id){
+	public function types(int $IdType){
 
-        $this->loadModel("Element");
-        $this->Element->delete($id);
-        
-        header('Location: /buildimac/element');	
-    }
+		$this->loadModel("Element");
+		$elements = $this->Element->getByType($IdType);
 
-    public function add_element($array){
-        
-        $this->loadModel("Element");
-        $this->Element->add($array);
+		$this->view('layout/header.php', ['title' => 'Elements']);
+		$this->view('allElements.php', compact('elements')); //compact transforme la requête sql en un tableau associatif
+		$this->view('layout/footer.php');
+	
+	}
 
-        header('Location: /buildimac/element');	
-    }
+	public function delete_element(int $id){
 
-    public function read(int $id){
+		$this->loadModel("Element");
+		$this->Element->delete($id);
+		
+		header('Location: /buildimac/element');	
+	}
 
-        $this->loadModel("Element");
-        $elements = $this->Element->getById($id);
+	public function add_element($array){
+		
+		$this->loadModel("Element");
+		$this->Element->add($array);
 
-        $this->view('layout/header.php', ['title' => 'Elements']);
-        $this->view('oneElement.php', compact('elements'));
-        $this->view('layout/footer.php');
-    }
+		header('Location: /buildimac/element');	
+	}
 
-    public function view_formulaire(){
-        $this->view('layout/header.php', ['title' => 'Elements']);
-        $this->view('addElement.php');
-        $this->view('layout/footer.php');
-    }
+	public function read(int $id){
+
+		$this->loadModel("Element");
+		$elements = $this->Element->getById($id);
+
+		$this->view('layout/header.php', ['title' => 'Elements']);
+		$this->view('oneElement.php', compact('elements'));
+		$this->view('layout/footer.php');
+	}
+
+	public function view_formulaire(){
+		$this->view('layout/header.php', ['title' => 'Elements']);
+		$this->view('addElement.php');
+		$this->view('layout/footer.php');
+	}
 }
