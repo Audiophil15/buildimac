@@ -21,7 +21,7 @@ class ElementController extends Controller{
 		$elements = $this->Element->getByType($IdType);
 
 		$this->view('layout/header.php', ['title' => 'Elements']);
-		$this->view('allElements.php', compact('elements')); //compact transforme la requête sql en un tableau associatif
+		$this->view('allTypes.php', compact('elements')); //compact transforme la requête sql en un tableau associatif
 		$this->view('layout/footer.php');
 	
 	}

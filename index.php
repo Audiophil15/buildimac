@@ -49,4 +49,4 @@ if(isset($urlParams[2]) && $urlParams[2] == "types"){
 
 ?>
 
-<a href ="./element">elements</a>
+<a href ="/buildimac/element">elements</a>

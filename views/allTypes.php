@@ -4,7 +4,7 @@
 	foreach ($elements as $element) { ?>
 
 
-		<h3><a href="element/<?= $element['Id_E'] ?>"><?= $element['Name_E'] ?></a></h3>
+		<h3><a href="/buildimac/element/<?= $element['Id_E'] ?>"><?= $element['Name_E'] ?></a></h3>
 
 		<p><?= $element['Description_E'] ?></p>
 
