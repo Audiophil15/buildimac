@@ -95,6 +95,9 @@ CREATE TABLE RELA_HOUSE_ELEMENT(
 # INSERT INTO
 #------------------------------------------------------------
 
+INSERT INTO `ADMINISTRATOR`(`Id_A`, `Login_A`, `Password_A`) 
+VALUES (1,'admin','azerty');
+
 /* -- Toit -- */
 INSERT INTO TYPE (Id_T, Name_T)
 VALUES (1, 'Toit');
