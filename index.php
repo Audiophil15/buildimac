@@ -30,10 +30,6 @@ switch ($urlParams[2]) {
 					$controller->add_element($array);
 					break;
 
-				case '':
-					$controller->index();
-					break;
-
 				case 'delete':
 					if (isset($urlParams[4]) && $urlParams[4] > 0) {
 						$controller->delete_element($urlParams[4]);
@@ -42,6 +38,10 @@ switch ($urlParams[2]) {
 
 				case $urlParams[3] > 0:
 					$controller->read($urlParams[3]);
+					break;					
+
+				case '':
+					$controller->index();
 					break;
 
 				default:
@@ -64,10 +64,29 @@ switch ($urlParams[2]) {
 				case $urlParams[3] > 0:
 					$controller->types($urlParams[3]);
 					break;	
-
 			}			
 		}else{
 			$controller->index();
+		}
+		break;
+
+	case 'connect' : 
+		$controller = new ElementController();
+		if (isset($urlParams[3])) {
+			switch ($urlParams[3]) {
+
+				case 'post':
+					$array = array($_POST['login'], $_POST['mdp']);
+					$controller->connect($array);
+					break;	
+				
+				case '':
+					$controller->view_connexion(); 
+					break;	
+			
+			}			
+		}else{
+			$controller->view_connexion(); 
 		}
 		break;
 
@@ -83,3 +102,4 @@ switch ($urlParams[2]) {
 
 <a href ="/buildimac/element">elements</a>
 <a href ="/buildimac/type/1">types</a>
+<a href ="/buildimac/connect">connexion</a>

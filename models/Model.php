@@ -39,4 +39,15 @@ class Model{
 
 	}
 
+	//récupérer une entrée de la table grâce à l'id
+	public function getAdmin($array){
+		$sql = "SELECT * FROM ADMINISTRATOR WHERE Login_A = ? AND Password_A = ?";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array($array[0], $array[1]));
+		return $query;
+		
+
+	}
+
+
 }

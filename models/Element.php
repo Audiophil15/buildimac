@@ -28,7 +28,6 @@ class Element extends Model
 	//récupérer une entrée de la table grâce à l'id, 3 requêtes delete car il y a des foraign keys
 	public function delete(int $id)
 	{
-
 		$sql = "DELETE FROM `rela_house_element` WHERE `Id_E`= ?  ; 
 					DELETE FROM `rela_indicator_element` WHERE `Id_E`= ? ; 
 					DELETE FROM `element` WHERE `Id_E`= ? ";
