@@ -39,11 +39,4 @@ class Model{
 
 	}
 
-	public function getByType(int $IdType){
-		$sql = "SELECT * FROM " . $this->table . " WHERE ".$this->idType." = ? ";
-		$query = $this->connexion->prepare($sql);
-		$query->execute(array($IdType));
-		return $query;
-	}
-
 }

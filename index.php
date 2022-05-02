@@ -7,46 +7,79 @@ require("controllers/ElementController.php");
 
 $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
 
-$controller = new ElementController();
-if(isset($urlParams[2]) && $urlParams[2] == "element"){
-	//Supprimer un élément
-	if( isset($urlParams[4]) && $urlParams[3] == "delete"){
-		$controller->delete_element($urlParams[4]);
-	}
-	//Accéder au formulaire d'ajout
-	else if(isset($urlParams[3]) && $urlParams[3] == "add"){
-		$controller->view_formulaire();
-	}
-	//Ajouter un élément
-	else if(isset($urlParams[3]) && $urlParams[3] == "post"){
-		$array = array($_POST['name'] , $_POST['name'].".png" , $_POST['desc'] , $_POST['type']); 
-		$controller->add_element($array);
-	}
-	//Voir un élément
-	else if(isset($urlParams[3])){
-		$controller->read($urlParams[3]);
-	}
-	//Voir tous les éléments
-	else{ 
-		$controller->index();
-	}
+$method = $_SERVER['REQUEST_METHOD'];
 
-}
-else 
-{
-if(isset($urlParams[2]) && $urlParams[2] == "types"){
-	// $controller = new ElementController();
+switch ($urlParams[2]) {
 
-	if ( isset($urlParams[3])){
-		$controller->types($urlParams[3]);
-	}
-	else{
-		$controller->index();
-	}
+	case '' :
+
+		break;
+
+	case 'element':
+		$controller = new ElementController();
+
+		if (isset($urlParams[3])) {
+			switch ($urlParams[3]) {
+
+				case 'add':
+					$controller->view_formulaire();
+					break;
+
+				case 'post':
+					$array = array($_POST['name'], $_POST['name'] . ".png", $_POST['desc'], $_POST['type']);
+					$controller->add_element($array);
+					break;
+
+				case '':
+					$controller->index();
+					break;
+
+				case 'delete':
+					if (isset($urlParams[4]) && $urlParams[4] > 0) {
+						$controller->delete_element($urlParams[4]);
+					}
+					break;
+
+				case $urlParams[3] > 0:
+					$controller->read($urlParams[3]);
+					break;
+
+				default:
+					http_response_code('404');
+					echo 'unknown endpoint';
+			}
+		} else {
+			$controller->index();
+		}
+		break;
+
+	case 'type' : 
+		$controller = new ElementController();
+		if (isset($urlParams[3])) {
+			switch ($urlParams[3]) {
+				case '':
+					$controller->index();
+					break;
+				
+				case $urlParams[3] > 0:
+					$controller->types($urlParams[3]);
+					break;	
+
+			}			
+		}else{
+			$controller->index();
+		}
+		break;
+
+	default:
+		http_response_code('500');
+		echo 'unknown endpoint';
+		break;
 }
-}
+
 
 
 ?>
 
 <a href ="/buildimac/element">elements</a>
+<a href ="/buildimac/type/1">types</a>

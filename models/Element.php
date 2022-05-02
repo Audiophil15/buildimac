@@ -17,6 +17,14 @@ class Element extends Model
 		$this->idType = "Id_type";
 	}
 
+	
+	public function getByType(int $IdType){
+		$sql = "SELECT * FROM " . $this->table . " WHERE ".$this->idType." = ? ";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array($IdType));
+		return $query;
+	}
+
 	//récupérer une entrée de la table grâce à l'id, 3 requêtes delete car il y a des foraign keys
 	public function delete(int $id)
 	{
