@@ -10,7 +10,7 @@
 <body>
 	<header>
 	<nav>
-		<a class="cochon" href="\buildimac\"><img alt="accueil" scr="\buildimac\css\images\cochon.png"></a>
+		<a class="cochon" href="\buildimac\"><img alt="accueil" src="\buildimac\css\images\cochon.png"></a>
 		<div>
 			<a href="">Galerie</a>
 			<a href="">Créer une maison</a>

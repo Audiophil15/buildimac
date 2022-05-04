@@ -44,7 +44,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
     width: 100%;
 }
 
