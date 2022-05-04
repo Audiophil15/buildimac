@@ -43,7 +43,7 @@ class ElementController extends Controller{
         if($array[4] <= $tailleMax){
             $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
             if(in_array($extensionFichier, $extension)){
-                $chemin = "C:\Users\lauri\Desktop\\xampp\htdocs\buildimac\images\\".$array[1];
+                $chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
 				var_dump($chemin);
                 $resultat = move_uploaded_file($array[6], $chemin);
 								
