@@ -11,6 +11,17 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($urlParams[2]) {
 
+	case 'game' :
+		if (isset($urlParams[3])) {
+			switch ($urlParams[3]) {
+				case 'play' :
+					$controller = new ElementController();
+					$controller->imgType();
+			}
+		}else{
+
+		}
+
 	case '' :
 
 		break;
@@ -105,3 +116,4 @@ switch ($urlParams[2]) {
 <a href ="/buildimac/element">elements</a>
 <a href ="/buildimac/type/1">types</a>
 <a href ="/buildimac/connect">connexion</a>
+<a href ="/buildimac/game/play">game</a>

@@ -1,0 +1,124 @@
+/* --------------- JEU --------------- */
+
+.toit,
+.mur,
+.fenetre,
+.porte,
+.terrain {
+	display: none;
+	width: 100%;
+}
+
+.house-container {
+	overflow: hidden;
+	position: absolute;
+	width: auto;
+	width: 100%;
+	min-height: 928px;
+	top: -15%;
+	bottom: 7%;
+	left: 0%;
+	z-index: 2;
+}
+
+.arrow-container {
+	position: absolute;
+	top: 20%;
+	z-index: 20;
+	width: 100%;
+	min-height: 928px;
+}
+
+.element-container {
+	margin: auto;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	z-index: 3;
+}
+
+/*toit*/
+.element-container:nth-child(2) {
+	z-index: 8;
+	transform: scale(0.7);
+	left: 7%;
+	top: 23%;
+}
+
+/*mur*/
+.element-container:nth-child(3) {
+	z-index: 5;
+	transform: scale(0.7);
+	left: 12%;
+	top: 35%;
+
+}
+
+/*fenetre*/
+.element-container:nth-child(4) {
+	z-index: 7;
+	transform: scale(0.7);
+	left: 30%;
+	top: 50%;
+}
+
+/*porte*/
+.element-container:nth-child(5) {
+	z-index: 6;
+	transform: scale(0.7);
+	left: 20%;
+	top: 50%;
+}
+
+
+.element-container:nth-child(6) {
+	z-index: 4;
+	transform: scale(0.67);
+	bottom: 0;
+}
+
+
+.prev,
+.next {
+	cursor: pointer;
+	user-select: none;
+	position: absolute;
+	transform: scale(2);
+	z-index: 20;
+}
+
+.prev {
+	left: 6%;
+}
+
+.next {
+	left: 55%;
+}
+
+/*arrow toit*/
+.prev:nth-child(1), .next:nth-child(2)  {
+	top: 15%;
+}
+
+/*arrow mur */
+.prev:nth-child(3), .next:nth-child(4)  {
+	top: 25%;
+}
+
+/*arrow fenetre */
+.prev:nth-child(5), .next:nth-child(6) {
+	top: 33%;
+}
+
+/*arow porte*/
+.prev:nth-child(7), .next:nth-child(8)  {
+	top: 40%;
+}
+
+.prev:hover, .next:hover{
+	color: rgb(255, 105, 180);
+}
+
+
+
+

@@ -104,4 +104,26 @@ class ElementController extends Controller{
 
 	}
 
+	public function imgType(){
+		$this->loadModel("Element");
+		$toits = $this->Element->getImgbyType(1);
+		$murs = $this->Element->getImgbyType(2);
+		$fenetres = $this->Element->getImgbyType(3);
+		$portes = $this->Element->getImgbyType(4);
+		$terrains = $this->Element->getImgbyType(5);
+
+		$elements = array(
+			"toits" => $toits,
+			"murs" => $murs, 
+			"fenetres" => $fenetres,
+			"portes" => $portes,
+			"terrains" => $terrains
+		);
+	
+		$this->view('layout/gameHeader.php', ['title' => 'Game']);
+		$this->view('gameInterface.php', $elements);
+		$this->view('layout/footer.php');
+
+	}
+
 }

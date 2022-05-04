@@ -5,7 +5,7 @@ class Element extends Model
 
 	public $Id_E;
 	public $Name_E;
-	public $Image_E;
+	public $Image_E = "Image_E";
 	public $Description_E;
 	public $Id_type;
 
@@ -43,6 +43,16 @@ class Element extends Model
 		$query->execute(array($array[0], $array[1], $array[2], $array[3]));
 	
 		
+	}
+
+
+	public function getImgbyType(int $type)
+	{
+		$sql = "SELECT " .$this->idName.",".$this->Image_E. " FROM " . $this->table . " WHERE " .$this->idType. " = ".$type;
+		$query = $this->connexion->prepare($sql);
+		$query->execute();
+		$results = $query->fetchAll();
+		return $results;
 	}
 
 	/*
