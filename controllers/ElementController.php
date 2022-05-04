@@ -37,9 +37,29 @@ class ElementController extends Controller{
 	public function add_element($array){
 		
 		$this->loadModel("Element");
-		$this->Element->add($array);
 
-		header('Location: /buildimac/element');	
+		$tailleMax = 2097152 ; 
+        $extension = array('jpg', 'jpeg', 'png');
+        if($array[4] <= $tailleMax){
+            $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
+            if(in_array($extensionFichier, $extension)){
+                $chemin = "C:\Users\lauri\Desktop\\xampp\htdocs\buildimac\images\\".$array[1];
+				var_dump($chemin);
+                $resultat = move_uploaded_file($array[6], $chemin);
+								
+				$array[1] = "\"../images/".$array[1]."\"";
+				$this->Element->add($array);
+				
+				echo "<script>alert('Element ajouté')</script>";
+				echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
+             }else { 
+				echo "<script>alert('Votre image doit être en format jpg, jpeg ou png')</script>";
+                echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ; 
+			}
+        } else { 
+			echo "<script>alert('Votre image ne doit pas dépasser 2Mo')</script>";
+			echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ;  
+		}
 	}
 
 	public function read(int $id){
@@ -69,18 +89,17 @@ class ElementController extends Controller{
 		
 		$this->loadModel("Model");
 		$info = $this->Model->getAdmin($array);
-
+	
 		if($info->rowCount() == 1){
 			$admininfo = $info->fetch();         
 			$_SESSION['ID'] = $admininfo['Id_A'];
 			$_SESSION['Login'] = $admininfo['Login_A'];
-			
+
 			echo "<script>alert('Vous êtes connecté')</script>";
     		echo "<script>window.location.href=\"/buildimac\";</script>" ; 
-		
 		}else{
 			echo "<script>alert('Identifiant ou mot de passe incorrect')</script>";
-    		echo "<script>window.location.href=\"/buildimac/connect\";</script>" ; 
+    		//echo "<script>window.location.href=\"/buildimac/connect\";</script>" ; 
 		}
 
 	}

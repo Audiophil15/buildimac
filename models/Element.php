@@ -38,10 +38,11 @@ class Element extends Model
 	//récupérer une entrée de la table grâce à l'id
 	public function add($array)
 	{
-
 		$sql = "INSERT INTO ELEMENT (Name_E, Image_E, Description_E, Id_type) VALUES (?, ? , ? , ?); ";
 		$query = $this->connexion->prepare($sql);
 		$query->execute(array($array[0], $array[1], $array[2], $array[3]));
+	
+		
 	}
 
 	/*

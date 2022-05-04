@@ -1,4 +1,4 @@
-<div>
+<div class="contain">
 	<?php
 	foreach ($elements as $element) { ?>
 
@@ -8,7 +8,7 @@
 
 		<p><?= $element['Description_E'] ?></p>
 
-		<a href ="/buildimac/element/delete/<?= $element['Id_E']?>" >Delete</a>
+		<a class="submit" href ="/buildimac/element/delete/<?= $element['Id_E']?>" >Delete</a>
 
 	<?php } ?>
 </div>
