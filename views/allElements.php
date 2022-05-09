@@ -1,6 +1,6 @@
 <div class="contain">
 	
-	<a class="submit" href="element/add">Add element</a>
+	<a class="submit" href="element/add">Ajouter un élément</a>
 
 	<div class="all">
 	<?php

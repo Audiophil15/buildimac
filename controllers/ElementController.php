@@ -1,5 +1,4 @@
 <?php
-
 class ElementController extends Controller{
 
 	public $orderId = "Id_type";
@@ -95,11 +94,11 @@ class ElementController extends Controller{
 			$_SESSION['ID'] = $admininfo['Id_A'];
 			$_SESSION['Login'] = $admininfo['Login_A'];
 
-			echo "<script>alert('Vous êtes connecté')</script>";
-    		echo "<script>window.location.href=\"/buildimac\";</script>" ; 
+			echo "<script>alert('Vous êtes connecté ".$_SESSION['ID'] ."')</script>";
+    		echo "<script>window.location.href=\"/buildimac/element\";</script>" ; 
 		}else{
 			echo "<script>alert('Identifiant ou mot de passe incorrect')</script>";
-    		//echo "<script>window.location.href=\"/buildimac/connect\";</script>" ; 
+    		echo "<script>window.location.href=\"/buildimac/connect\";</script>" ; 
 		}
 
 	}
@@ -120,7 +119,7 @@ class ElementController extends Controller{
 			"terrains" => $terrains
 		);
 	
-		$this->view('layout/gameHeader.php', ['title' => 'Game']);
+		$this->view('layout/header.php', ['title' => 'Game']);
 		$this->view('gameInterface.php', $elements);
 		$this->view('layout/footer.php');
 

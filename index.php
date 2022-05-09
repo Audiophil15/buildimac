@@ -2,6 +2,7 @@
 
 require("controllers/Controller.php");
 require("models/Model.php");
+require("config/session_start.php");
 require("controllers/ElementController.php");
 
 

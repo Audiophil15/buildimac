@@ -8,7 +8,7 @@
 
 		<p><?= $element['Description_E'] ?></p>
 
-		<a class="submit" href ="/buildimac/element/delete/<?= $element['Id_E']?>" >Delete</a>
+		<a class="submit" href ="/buildimac/element/delete/<?= $element['Id_E']?>" >Supprimer</a>
 
 	<?php } ?>
 </div>

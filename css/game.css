@@ -11,13 +11,15 @@
 
 .house-container {
 	overflow: hidden;
-	position: absolute;
-	width: auto;
+	/* position: absolute; */
+	position: relative;
+	/* width: auto; */
 	width: 100%;
-	min-height: 928px;
-	top: -15%;
-	bottom: 7%;
-	left: 0%;
+	min-height: 70vh ; 
+	/* min-height: 928px; */
+	/* top: -15%; */
+	/* bottom: 7%; */
+	/* left: 0%; */
 	z-index: 2;
 }
 
@@ -26,7 +28,8 @@
 	top: 20%;
 	z-index: 20;
 	width: 100%;
-	min-height: 928px;
+	/* min-height: 928px; */
+	min-height: 70vh ;
 }
 
 .element-container {
@@ -41,16 +44,16 @@
 .element-container:nth-child(2) {
 	z-index: 8;
 	transform: scale(0.7);
-	left: 7%;
-	top: 23%;
+	left: 9%;
+	top: 20%;
 }
 
 /*mur*/
 .element-container:nth-child(3) {
 	z-index: 5;
 	transform: scale(0.7);
-	left: 12%;
-	top: 35%;
+	left: 13%;
+	top: 30%;
 
 }
 
@@ -58,23 +61,24 @@
 .element-container:nth-child(4) {
 	z-index: 7;
 	transform: scale(0.7);
-	left: 30%;
-	top: 50%;
+	left: 35%;
+	top: 58%;
 }
 
 /*porte*/
 .element-container:nth-child(5) {
 	z-index: 6;
 	transform: scale(0.7);
-	left: 20%;
-	top: 50%;
+	left: 22%;
+	top: 54%;
 }
 
-
+/*terrain*/
 .element-container:nth-child(6) {
 	z-index: 4;
-	transform: scale(0.67);
-	bottom: 0;
+	transform: scale(0.77);
+	left: 9%;
+	top: 3
 }
 
 
@@ -97,22 +101,22 @@
 
 /*arrow toit*/
 .prev:nth-child(1), .next:nth-child(2)  {
-	top: 15%;
+	top: 20%;
 }
 
 /*arrow mur */
 .prev:nth-child(3), .next:nth-child(4)  {
-	top: 25%;
+	top: 35%;
 }
 
 /*arrow fenetre */
 .prev:nth-child(5), .next:nth-child(6) {
-	top: 33%;
+	top: 50%;
 }
 
 /*arow porte*/
 .prev:nth-child(7), .next:nth-child(8)  {
-	top: 40%;
+	top: 65%;
 }
 
 .prev:hover, .next:hover{

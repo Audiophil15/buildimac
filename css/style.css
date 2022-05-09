@@ -16,6 +16,7 @@ body {
 .contain {
     width: 78vw;
     min-height: 80vh;
+    position: relative;
 }
 
 a {
