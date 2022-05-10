@@ -37,12 +37,27 @@ switch ($urlParams[2]) {
 					$controller->view_formulaire();
 					break;
 
+				case 'modify':
+					if (isset($urlParams[4]) && $urlParams[4] > 0) {
+						$controller->view_modifier_formulaire($urlParams[4]);
+					}
+					break;
+
 				case 'post':
 					$name_file = $_POST['name'] . ".png" ; 
 					$name_file = str_ireplace(' ', '_', $name_file);
 					$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
 					$controller->add_element($array);
 					break;
+
+				case 'update':
+					if (isset($urlParams[4]) && $urlParams[4] > 0) {
+						$name_file = $_POST['name'] . ".png" ; 
+						$name_file = str_ireplace(' ', '_', $name_file);
+						$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name'], $urlParams[4]);
+						$controller->modify_element($array);
+					}
+					break;	
 
 				case 'delete':
 					if (isset($urlParams[4]) && $urlParams[4] > 0) {

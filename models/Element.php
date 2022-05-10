@@ -45,6 +45,12 @@ class Element extends Model
 		
 	}
 
+	public function modify($array)
+	{
+		$sql = "UPDATE ELEMENT SET Name_E =?, Image_E=?, Description_E=?, Id_type=? WHERE Id_E=?;  ";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array($array[0], $array[1], $array[2], $array[3], $array[7]));
+	}
 
 	public function getImgbyType(int $type)
 	{
