@@ -1,3 +1,5 @@
+<?php if(isset($_SESSION['ID'])){ ?>
+
 <div class="contain">
 	
 	<a class="submit" href="element/add">Ajouter un élément</a>
@@ -14,4 +16,11 @@
 	<?php } ?>
 	</div>
 </div>
+
+<?php 
+}else{
+	echo "<script>alert(\"Vous n'êtes pas autorisé à accéder à cette page, si vous êtes admin connectez-vous.\")</script>";
+    echo "<script>window.location.href=\"/buildimac\";</script>" ; 
+}
+?>
 

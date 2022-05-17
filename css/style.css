@@ -66,7 +66,7 @@ form {
     align-items: center;
     flex-direction: column;
     text-align: left;
-    width: 30vw;
+    width: 70vw;
 }
 
 input {
@@ -109,6 +109,19 @@ select {
     background-color: rgb(255, 135, 200);
 }
 
+.formulaire {
+    display: flex;
+    flex-direction: row;    
+}
+
+.partie1,
+.partie2 {
+    width: 30vw;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 5vw;
+}
+
 /* --------------- ELEMENTS --------------- */
 .all {
     display: flex;
@@ -131,3 +144,38 @@ select {
 .titre_element a {
     padding : 0 ; 
 }
+
+
+/* --------------- ONE ELEMENT --------------- */
+.one_element {
+    display: flex;
+    flex-direction: row;
+    padding: 3vw 0;
+}
+
+.one_infos {
+    width: 50%;
+    height: 50vh;
+}
+
+.one_infos h3 {
+    font-size: 1.7vw;
+    color: rgb(255, 105, 180);
+}
+
+.one_infos p {
+    font-size: 1vw;
+    padding-right: 5vw;
+}
+
+.one_image {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.one_image img{
+    min-width: 15vw;
+}
+

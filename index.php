@@ -54,7 +54,7 @@ switch ($urlParams[2]) {
 					if (isset($urlParams[4]) && $urlParams[4] > 0) {
 						$name_file = $_POST['name'] . ".png" ; 
 						$name_file = str_ireplace(' ', '_', $name_file);
-						$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name'], $urlParams[4]);
+						$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name'], $urlParams[4], $_POST['1'], $_POST['2'], $_POST['3'], $_POST['4'], $_POST['5'], $_POST['6'], $_POST['7'], $_POST['8'], $_POST['9']);
 						$controller->modify_element($array);
 					}
 					break;	

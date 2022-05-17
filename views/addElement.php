@@ -1,3 +1,5 @@
+<?php if(isset($_SESSION['ID'])){ ?>
+
 <div class="contain">
 
     <h2> Ajouter un élément </h2>
@@ -18,11 +20,17 @@
 
         <?php foreach ($elements as $element) { ?>
         <label name="indicator" for="indicator"><?= $element['Name_I'] ?></label>
-        <input value="0" type="number" name="<?= $element['Id_I'] ?>" min="0" max="10">
-
+        <input required value="0" type="number" name="<?= $element['Id_I'] ?>" min="0" max="10">
         <?php } ?>
 
         <input type="submit" class="submit" value="Valider">
     </form>
 
 </div>
+
+<?php 
+}else{
+	echo "<script>alert(\"Vous n'êtes pas autorisé à accéder à cette page, si vous êtes admin connectez-vous.\")</script>";
+    echo "<script>window.location.href=\"/buildimac\";</script>" ; 
+}
+?>
