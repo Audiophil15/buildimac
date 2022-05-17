@@ -52,7 +52,7 @@
 .element-container:nth-child(3) {
 	z-index: 5;
 	transform: scale(0.7);
-	left: 13%;
+	left: 11.5%;
 	top: 30%;
 
 }
@@ -70,7 +70,7 @@
 	z-index: 6;
 	transform: scale(0.7);
 	left: 22%;
-	top: 54%;
+	top: 57%;
 }
 
 /*terrain*/

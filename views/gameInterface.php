@@ -77,6 +77,8 @@
 
   </div>
 
+  <a class="submit" id="gameBtn">Valider</a>
+
 </div>
 
   <script>
@@ -115,3 +117,5 @@
   }
 
   </script>
+
+<script type='text/javascript' src='\buildimac\game.js'></script>

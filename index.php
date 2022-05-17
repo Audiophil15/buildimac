@@ -4,6 +4,7 @@ require("controllers/Controller.php");
 require("models/Model.php");
 require("config/session_start.php");
 require("controllers/ElementController.php");
+require("controllers/HouseController.php");
 
 
 $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
@@ -11,6 +12,24 @@ $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($urlParams[2]) {
+
+	case 'house' :
+		$controller = new HouseController();
+		switch($method) {
+			case 'GET' :
+				break;
+
+			case 'POST' :
+				$array = file_get_contents('php://input');
+				/*$array = array($_POST['date'] , $_POST['toit'] , $_POST['mur'] , $_POST['fenetre'], $_POST['porte'], $_POST['terrain'])*/; 
+				$controller->addAHouse($array);
+				break;
+
+			default:
+				http_response_code('404');
+				echo 'OOPS';
+		}
+		break;
 
 	case 'game' :
 		if (isset($urlParams[3])) {
@@ -110,11 +129,5 @@ switch ($urlParams[2]) {
 		break;
 }
 
-
-
 ?>
 
-<a href ="/buildimac/element">elements</a>
-<a href ="/buildimac/type/1">types</a>
-<a href ="/buildimac/connect">connexion</a>
-<a href ="/buildimac/game/play">game</a>
