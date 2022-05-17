@@ -52,7 +52,11 @@
 .element-container:nth-child(3) {
 	z-index: 5;
 	transform: scale(0.7);
+<<<<<<< HEAD
 	left: 11.5%;
+=======
+	left: 10.5%;
+>>>>>>> 727871d4dec8430b584f7feffc63499afa3d64d8
 	top: 30%;
 
 }

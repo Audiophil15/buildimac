@@ -43,11 +43,39 @@ class ElementController extends Controller{
             $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
             if(in_array($extensionFichier, $extension)){
                 $chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
-				var_dump($chemin);
+
                 $resultat = move_uploaded_file($array[6], $chemin);
 								
 				$array[1] = "\"../images/".$array[1]."\"";
 				$this->Element->add($array);
+				
+				echo "<script>alert('Element ajouté')</script>";
+				echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
+             }else { 
+				echo "<script>alert('Votre image doit être en format jpg, jpeg ou png')</script>";
+                echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ; 
+			}
+        } else { 
+			echo "<script>alert('Votre image ne doit pas dépasser 2Mo')</script>";
+			echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ;  
+		}
+	}
+
+	public function modify_element($array){
+		var_dump($array);
+		$this->loadModel("Element");
+
+		$tailleMax = 2097152 ; 
+        $extension = array('jpg', 'jpeg', 'png');
+        if($array[4] <= $tailleMax){
+            $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
+            if(in_array($extensionFichier, $extension)){
+                $chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
+
+                $resultat = move_uploaded_file($array[6], $chemin);
+								
+				$array[1] = "\"../images/".$array[1]."\"";
+				$this->Element->modify($array);
 				
 				echo "<script>alert('Element ajouté')</script>";
 				echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
@@ -74,6 +102,15 @@ class ElementController extends Controller{
 	public function view_formulaire(){
 		$this->view('layout/header.php', ['title' => 'Elements']);
 		$this->view('addElement.php');
+		$this->view('layout/footer.php');
+	}
+
+	public function view_modifier_formulaire(int $id){
+		$this->loadModel("Element");
+		$elements = $this->Element->getById($id);
+
+		$this->view('layout/header.php', ['title' => 'Elements']);
+		$this->view('modifyElements.php', compact('elements'));
 		$this->view('layout/footer.php');
 	}
 	
