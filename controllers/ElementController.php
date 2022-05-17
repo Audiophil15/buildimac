@@ -42,7 +42,7 @@ class ElementController extends Controller{
         if($array[4] <= $tailleMax){
             $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
             if(in_array($extensionFichier, $extension)){
-                $chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
+                $chemin = "C:\Users\lauri\Desktop\\xampp\htdocs\buildimac\images\\".$array[1];
 
                 $resultat = move_uploaded_file($array[6], $chemin);
 								
@@ -50,19 +50,25 @@ class ElementController extends Controller{
 				$this->Element->add($array);
 				
 				echo "<script>alert('Element ajouté')</script>";
-				echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
+				//echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
              }else { 
 				echo "<script>alert('Votre image doit être en format jpg, jpeg ou png')</script>";
-                echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ; 
+               // echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ; 
 			}
         } else { 
 			echo "<script>alert('Votre image ne doit pas dépasser 2Mo')</script>";
-			echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ;  
+			//echo "<script>window.location.href=\"/buildimac/element/add\";</script>" ;  
 		}
 	}
 
+	public function add_indicator($array)
+	{
+		$this->loadModel("Element");
+		$this->Element->add_score($array);
+		
+	}
+
 	public function modify_element($array){
-		var_dump($array);
 		$this->loadModel("Element");
 
 		$tailleMax = 2097152 ; 
@@ -100,8 +106,11 @@ class ElementController extends Controller{
 	}
 
 	public function view_formulaire(){
+		$this->loadModel("Element");
+		$elements = $this->Element->getIndicator();
+
 		$this->view('layout/header.php', ['title' => 'Elements']);
-		$this->view('addElement.php');
+		$this->view('addElement.php',  compact('elements'));
 		$this->view('layout/footer.php');
 	}
 

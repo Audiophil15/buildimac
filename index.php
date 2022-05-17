@@ -46,7 +46,7 @@ switch ($urlParams[2]) {
 				case 'post':
 					$name_file = $_POST['name'] . ".png" ; 
 					$name_file = str_ireplace(' ', '_', $name_file);
-					$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+					$array = array($_POST['name'], $name_file, $_POST['desc'], $_POST['type'], $_FILES['image']['size'], $_FILES['image']['name'], $_FILES['image']['tmp_name'], $_POST['1'], $_POST['2'], $_POST['3'], $_POST['4'], $_POST['5'], $_POST['6'], $_POST['7'], $_POST['8'], $_POST['9']);
 					$controller->add_element($array);
 					break;
 

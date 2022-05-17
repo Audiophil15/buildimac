@@ -15,6 +15,13 @@
         </select>
         <label for="image">Image:</label>
         <input type="file" id="image" name="image">
+
+        <?php foreach ($elements as $element) { ?>
+        <label name="indicator" for="indicator"><?= $element['Name_I'] ?></label>
+        <input value="0" type="number" name="<?= $element['Id_I'] ?>" min="0" max="10">
+
+        <?php } ?>
+
         <input type="submit" class="submit" value="Valider">
     </form>
 

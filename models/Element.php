@@ -25,6 +25,13 @@ class Element extends Model
 		return $query;
 	}
 
+	public function getIndicator(){
+		$sql = "SELECT * FROM  indicator";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array());
+		return $query;
+	}
+
 	//récupérer une entrée de la table grâce à l'id, 3 requêtes delete car il y a des foraign keys
 	public function delete(int $id)
 	{
@@ -35,14 +42,39 @@ class Element extends Model
 		$query->execute(array($id, $id, $id));
 	}
 
-	//récupérer une entrée de la table grâce à l'id
 	public function add($array)
 	{
 		$sql = "INSERT INTO ELEMENT (Name_E, Image_E, Description_E, Id_type) VALUES (?, ? , ? , ?); ";
 		$query = $this->connexion->prepare($sql);
 		$query->execute(array($array[0], $array[1], $array[2], $array[3]));
-	
-		
+
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(1, $array[7]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(2, $array[8]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(3, $array[9]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(4, $array[10]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(5, $array[11]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(6, $array[12]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(7, $array[13]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(8, $array[14]));
+		$sql = "INSERT INTO rela_indicator_element (Id_E,Id_I,Points) VALUES (LAST_INSERT_ID(), ? , ?);";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array(9, $array[15]));
 	}
 
 	public function modify($array)
