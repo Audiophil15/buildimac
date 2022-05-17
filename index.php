@@ -17,6 +17,7 @@ switch ($urlParams[2]) {
 		$controller = new HouseController();
 		switch($method) {
 			case 'GET' :
+
 				break;
 
 			case 'POST' :
@@ -37,6 +38,13 @@ switch ($urlParams[2]) {
 				case 'play' :
 					$controller = new ElementController();
 					$controller->imgType();
+					break;
+				
+				case 'results' : 
+					$controller = new HouseController();
+					$array = file_get_contents('php://input');
+					echo($controller->score($array));
+					break;
 			}
 		}else{
 

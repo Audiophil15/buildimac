@@ -14,6 +14,8 @@
     <a class="next" onclick="plusSlides(1,4)">></a>
   </div>
 
+  <div id="results"></div>
+
   <div class="element-container"> 
   <?php
   for ($i = 0; $i < count($toits); $i++) { ?>
