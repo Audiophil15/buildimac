@@ -42,6 +42,20 @@ class House extends Model
 		$query->execute(array($array[6]));*/
 
 	}
-	
+
+	public function getHouse()
+	{
+		$sql = "SELECT UNIQUE Id_H FROM rela_house_element";
+		$query = $this->connexion->prepare($sql);
+		$query->execute();
+		$houses=$query->fetch();
+		foreach($houses as $house){
+			$sql ="SELECT Image_E FROM 'element' INNER JOIN 'rela_house_element' ON 'rela_house_element'.Id_E= 'element'.Id_E	WHERE 'rela_house_element'.Id_H=?";
+			$query = $this->connexion->prepare($sql);
+			$query->execute(array($house));
+			$elements=$query->fetch();
+		} 
+		return $elements;
+	}
 
 }
