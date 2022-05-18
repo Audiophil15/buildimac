@@ -148,7 +148,7 @@ class ElementController extends Controller{
 			$_SESSION['ID'] = $admininfo['Id_A'];
 			$_SESSION['Login'] = $admininfo['Login_A'];
 
-			echo "<script>alert('Vous êtes connecté ".$_SESSION['ID'] ."')</script>";
+			echo "<script>alert('Vous êtes connecté')</script>";
     		echo "<script>window.location.href=\"/buildimac/element\";</script>" ; 
 		}else{
 			echo "<script>alert('Identifiant ou mot de passe incorrect')</script>";

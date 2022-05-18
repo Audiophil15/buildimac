@@ -20,8 +20,8 @@
                     <option <?php if($element['Id_type']==4){?> selected <?php } ?>value="4">Porte</option>
                     <option <?php if($element['Id_type']==5){?> selected <?php } ?>value="5">Terrain</option>
                 </select>
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image">
+                <!--<label for="image">Image:</label>
+                <input type="file" id="image" name="image">-->
                 
         <input type="submit" class="submit" value="Valider">
             </div>
