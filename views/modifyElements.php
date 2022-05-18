@@ -25,7 +25,7 @@
                 
         <input type="submit" class="submit" value="Valider">
             </div>
-                <div class="partie2">
+            <div class="partie2">
                 <?php foreach ($indicators as $indicator) { ?>
                 <label name="indicator" for="indicator"><?= $indicator['Name_I'] ?></label>
                 <input value="<?= $indicator['Points'] ?>" type="number" name="<?= $indicator['Id_I'] ?>" min="0" max="10">
