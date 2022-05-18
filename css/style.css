@@ -103,6 +103,7 @@ select {
     margin-right: auto;
     background-color: rgb(255, 105, 180);
     color: white ;
+    transition: 0.1s ease-in-out;
 }
 
 .submit:hover {
@@ -179,3 +180,49 @@ select {
     min-width: 15vw;
 }
 
+/* --------------- INDEX --------------- */
+
+.index{
+    display: flex ; 
+    flex-direction: row;
+    width: 78vw;
+    min-height: 75vh;
+}
+
+.cochon_play{
+    width: 50%;
+    position : relative ; 
+}
+
+.cochon_infos{
+    height: 90%;
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+}
+
+.submit_play{
+    width: 10vw;
+    position: absolute;
+    bottom : 20vh; 
+    left: 2.5vw;
+    font-size: 3vw;
+    text-align: center;
+    min-height: 8vh;
+}
+
+.submit_play:hover{
+    transform: scale(1.1);
+}
+
+.connect{
+    background-color: transparent;
+    color: #ff69b4; 
+    font-size: 0.8vw;
+}
+
+.connect:hover{
+    background-color: transparent;
+    color: rgb(255, 135, 200); 
+    font-size: 0.85vw;
+}

@@ -5,6 +5,7 @@ require("models/Model.php");
 require("config/session_start.php");
 require("controllers/ElementController.php");
 require("controllers/HouseController.php");
+require("controllers/ApplicationController.php");
 
 
 $urlParams = explode('/',  $_SERVER['REQUEST_URI']);
@@ -41,10 +42,6 @@ switch ($urlParams[2]) {
 		}else{
 
 		}
-
-	case '' :
-
-		break;
 
 	case 'element':
 		$controller = new ElementController();
@@ -117,7 +114,7 @@ switch ($urlParams[2]) {
 		break;
 
 	case 'connect' : 
-		$controller = new ElementController();
+		$controller = new ApplicationController();
 		if (isset($urlParams[3])) {
 			switch ($urlParams[3]) {
 
@@ -134,6 +131,11 @@ switch ($urlParams[2]) {
 		}else{
 			$controller->view_connexion(); 
 		}
+		break;
+
+	case '' : 
+		$controller = new ApplicationController();
+		$controller->view_index(); 
 		break;
 
 	default:
