@@ -29,7 +29,7 @@ switch ($urlParams[2]) {
 
 			default:
 				http_response_code('404');
-				echo 'OOPS';
+				//echo 'OOPS';
 		}
 		break;
 
@@ -97,7 +97,7 @@ switch ($urlParams[2]) {
 
 				default:
 					http_response_code('404');
-					echo 'unknown endpoint';
+					//echo 'unknown endpoint';
 			}
 		} else {
 			$controller->index();
@@ -148,7 +148,7 @@ switch ($urlParams[2]) {
 
 	default:
 		http_response_code('500');
-		echo 'unknown endpoint';
+		//echo 'unknown endpoint';
 		break;
 }
 
