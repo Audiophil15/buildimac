@@ -20,9 +20,14 @@ body {
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
     color : hotpink;
     padding: 0 3vw;
+}
+
+a:hover{
+    color : rgb(52, 52, 52); 
+    transition:ease-in 0.2s;
 }
 
 p {

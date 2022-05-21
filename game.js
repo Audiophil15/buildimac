@@ -1,11 +1,11 @@
 /*** SLIDER ***/
 window.addEventListener("DOMContentLoaded", (e) => {
+
 let gameBtn = document.getElementById('gameBtn');
 console.log(gameBtn);
-
 let container = document.getElementById('results');
-
-let date = new Date();
+let gameContainer = document.getElementById('game-contain');
+let loader = document.getElementById('loader');
 
 gameBtn.addEventListener('click', (event) => {
 	event.preventDefault();
@@ -24,15 +24,6 @@ gameBtn.addEventListener('click', (event) => {
 
 		console.log(params);
 		let content = "";
-
-		/*fetch('/buildimac/house', { method: 'POST', body: JSON.stringify(params)})
-		.then(response => response.json())
-		.then (data =>{
-			console.log("yes");
-			//once again, we need to display the data. The function 'displayPlanets' is for that purpose
-			//displayPlanets(data);
-		})
-		.catch(error => { console.log(error) });*/
 		
 		fetch('/buildimac/house', { method: 'POST', body: JSON.stringify(params)})
 		.then( 
@@ -43,36 +34,49 @@ gameBtn.addEventListener('click', (event) => {
 
 				console.log(data[4])
 
-				content+= "esthetique : " + data[0];
-				content+= "Isolation thermique : " + data[1];
-				content+= "Isolation sonore : " + data[2];
-				content+= "Solidité : " + data[3];
-				content+= "Résistance au feu : " + data[4];
-				content+= "Etanchéité : " + data[5];
-				content+= "Luminosité : " + data[6];
-				content+= "Accessibilité : " + data[7];
-				content+= "Securité : " + data[8];
+				document.documentElement.style.setProperty('--end-esthe', data[0]/10+"%" );
 
-				container.innerHTML = content;
+				document.documentElement.style.setProperty('--end-isother', data[1]/10+"%" );
 
-				
-				//once again, we need to display the data. The function 'displayPlanets' is for that purpose
-				//displayPlanets(data);
+				document.documentElement.style.setProperty('--end-isoson', data[2]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-soli', data[3]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-resifeu', data[4]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-etan', data[5]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-lumi', data[6]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-access', data[7]/10+"%" );
+
+				document.documentElement.style.setProperty('--end-secu', data[8]/10+"%" );
+
+				/*content+= " Esthetique : " + data[0];
+				content+= " Isolation thermique : " + data[1];
+				content+= " Isolation sonore : " + data[2];
+				content+= " Solidité : " + data[3];
+				content+= " Résistance au feu : " + data[4];
+				content+= " Etanchéité : " + data[5];
+				content+= " Luminosité : " + data[6];
+				content+= " Accessibilité : " + data[7];
+				content+= " Securité : " + data[8];*/
+			
+				/*container.innerHTML = content;*/
+				gameContainer.style.display = "none";
+				loader.style.display = "block";
+				setTimeout(function(){ 
+					container.style.display = "flex";
+					loader.style.display = "none";
+					
+				},1500);
+
 			})
 			.catch(error => { console.log(error) })
 			
 		)
-		/*.then(response => response.json())
-		.then (data =>{
-			console.log("yes");
-			//once again, we need to display the data. The function 'displayPlanets' is for that purpose
-			//displayPlanets(data);
-		})
-		.catch(error => { console.log(error) });*/
-
 
 	}
-	
 	
 
 })
@@ -87,4 +91,3 @@ function toISOLocal(d) {
  
 
 });
-/*** ***/

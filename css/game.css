@@ -1,4 +1,52 @@
+:root {
+  --end-esthe: 30%;
+	--end-isother: 30%;
+	--end-isoson: 30%;
+	--end-soli: 30%;
+	--end-resifeu: 30%;
+	--end-etan: 30%;
+	--end-lumi: 30%;
+	--end-access: 30%;
+	--end-secu: 30%;
+}
+
+
 /* --------------- JEU --------------- */
+.game-contain{
+	display:flex;
+	/*flex-direction: row-reverse;*/
+	justify-content: space-between;
+}
+
+.game-descri{
+	min-width:30%;
+	max-width:40%;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.game-descri .submit{
+	min-height:inherit;
+	/*width:inherit;*/
+	padding:20px;
+	text-align: center;
+}
+
+.game-descri-txt p{
+	background-color: #fdebc0;
+	padding: 50px 20px;
+	border-radius:25px;
+	text-align: center;
+	font-size: 1rem;
+	color: #3d3d3d;
+	/* margin-left:50px; */
+}
+
+.game-descri-txt .cochon{
+	position:absolute;
+	top:37%;
+}
 
 .toit,
 .mur,
@@ -9,13 +57,19 @@
 	width: 100%;
 }
 
+.wrapper{
+	position:relative;
+}
+
 .house-container {
 	overflow: hidden;
 	/* position: absolute; */
 	position: relative;
 	/* width: auto; */
-	width: 100%;
-	min-height: 70vh ; 
+	/*width: 100%;*/
+
+	min-width:60%;
+	min-height: 80vh; 
 	/* min-height: 928px; */
 	/* top: -15%; */
 	/* bottom: 7%; */
@@ -24,11 +78,13 @@
 }
 
 .arrow-container {
-	position: absolute;
+	/* background-color: greenyellow; */
+	position: relative;
 	top: 20%;
 	z-index: 20;
-	width: 100%;
-	/* min-height: 928px; */
+	min-width:400px;
+	/*min-width: 60%;*/
+	/*min-height: 928px; */
 	min-height: 70vh ;
 }
 
@@ -43,20 +99,16 @@
 /*toit*/
 .element-container:nth-child(2) {
 	z-index: 8;
-	transform: scale(0.7);
-	left: 9%;
-	top: 20%;
+	transform: scale(0.8);
+	left: 5.5%;
+	top: 14%;
 }
 
 /*mur*/
 .element-container:nth-child(3) {
 	z-index: 5;
-	transform: scale(0.7);
-<<<<<<< HEAD
-	left: 11.5%;
-=======
-	left: 10.5%;
->>>>>>> 727871d4dec8430b584f7feffc63499afa3d64d8
+	transform: scale(0.8);
+	left: 8.5%;
 	top: 30%;
 
 }
@@ -64,24 +116,24 @@
 /*fenetre*/
 .element-container:nth-child(4) {
 	z-index: 7;
-	transform: scale(0.7);
-	left: 35%;
-	top: 58%;
+	transform: scale(0.8);
+	left: 50%;
+	top: 55%;
 }
 
 /*porte*/
 .element-container:nth-child(5) {
 	z-index: 6;
-	transform: scale(0.7);
-	left: 22%;
-	top: 57%;
+	transform: scale(0.8);
+	left: 26%;
+	top: 55%;
 }
 
 /*terrain*/
 .element-container:nth-child(6) {
 	z-index: 4;
-	transform: scale(0.77);
-	left: 9%;
+	transform: scale(0.9);
+	left: 5%;
 	top: 3
 }
 
@@ -96,11 +148,11 @@
 }
 
 .prev {
-	left: 6%;
+	left: 0%;
 }
 
 .next {
-	left: 55%;
+	left: 83%;
 }
 
 /*arrow toit*/
@@ -128,5 +180,344 @@
 }
 
 
+/***RESULTS***/
 
 
+.results{
+  overflow:hidden;
+  margin-top:20px;
+	height: 600px;
+	display:none;
+  width: 100%;
+	/*display: flex;*/
+  flex-direction: column;
+  flex-wrap: wrap;
+  position:absolute;
+  z-index:30; 
+  background-color: #FFF8DC;
+}
+
+.bar-wrapper {
+	/*display:none;*/
+  width: 35%;
+  margin-bottom: 2%;
+}
+  
+.bar {
+    /*width: 100%;*/
+    margin-bottom: 2%;
+    height: 30px;
+	  padding: 10px;
+    position: relative;
+    background: rgb(226, 226, 226);
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .bar>span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar>.esthe {
+    background-color: hotpink;
+    -webkit-animation: remplir-esthe 3s ease-in-out;
+    animation: remplir-esthe 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+
+  .bar>.isother {
+    background-color: orange;
+    -webkit-animation: remplir-isother 3s ease-in-out;
+    animation: remplir-isother 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  
+  .bar>.isoson {
+    background-color: rgb(142, 13, 202);
+    -webkit-animation: remplir-isoson 3s ease-in-out;
+    animation: remplir-isoson 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .bar>.soli{
+    background-color: rgba(165, 75, 42, 0.829);
+    -webkit-animation: remplir-soli 3s ease-in-out;
+    animation: remplir-soli 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+
+  .bar>.resifeu{
+    background-color: rgb(255, 72, 72);
+    -webkit-animation: remplir-resifeu 3s ease-in-out;
+    animation: remplir-resifeu 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  
+  .bar>.etan{
+    background-color: rgb(46, 213, 255);
+    -webkit-animation: remplir-etan 3s ease-in-out;
+    animation: remplir-etan 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+
+  .bar>.lumi{
+    background-color: rgb(255, 255, 95);
+    -webkit-animation: remplir-lumi 3s ease-in-out;
+    animation: remplir-lumi 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .bar>.access{
+    background-color: rgb(127, 236, 37);
+    -webkit-animation: remplir-access 3s ease-in-out;
+    animation: remplir-access 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .bar>.secu{
+    background-color: rgb(62, 62, 62);
+    -webkit-animation: remplir-secu 3s ease-in-out;
+    animation: remplir-secu 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+
+
+  @-webkit-keyframes remplir-esthe{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width: var(--end-esthe);
+    }
+  }
+  
+  @keyframes remplir-esthe {
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width: var(--end-esthe);
+    }
+  }
+
+  @-webkit-keyframes remplir-isother{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-isother);
+    }
+  }
+  
+  @keyframes remplir-isother {
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-isother);
+    }
+  }
+
+  @-webkit-keyframes remplir-isoson{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width: var(--end-isoson);
+    }
+  }
+  
+  @keyframes remplir-isoson {
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-isoson);
+    }
+  }
+
+
+  @-webkit-keyframes remplir-soli{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-soli);
+    }
+  }
+  
+  @keyframes remplir-soli{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-soli);
+    }
+  }
+  
+  
+  @-webkit-keyframes remplir-resifeu{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-resifeu);
+    }
+  }
+  
+  @keyframes remplir-resifeu{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-resifeu);
+    }
+  }
+  
+
+  @-webkit-keyframes remplir-etan{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-etan);
+    }
+  }
+  
+  @keyframes remplir-etan{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-etan);
+    }
+  }
+  
+
+  @-webkit-keyframes remplir-lumi{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-lumi);
+    }
+  }
+  
+  @keyframes remplir-lumi{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-lumi);
+    }
+  }
+
+  @-webkit-keyframes remplir-access{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-access);
+    }
+  }
+  
+  @keyframes remplir-access{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-access);
+    }
+  }
+
+
+  @-webkit-keyframes remplir-secu{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-secu);
+    }
+  }
+  
+  @keyframes remplir-secu{
+    0% {
+      width: 0;
+    }
+  
+    100% {
+      width:  var(--end-secu);
+    }
+  }
+
+
+  .loader {
+    display:none;
+    position:absolute;
+    top: 40%;
+    left: 48%;
+    z-index:35;
+    border: 20px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 20px solid #FAC4C8;
+    border-bottom: 20px solid #FAC4C8;
+    width: 75px;
+    height: 75px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+
+  
