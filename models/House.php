@@ -43,19 +43,29 @@ class House extends Model
 
 	}
 
-	public function getHouse()
+	public function getHousesElements()
 	{
 		$sql = "SELECT UNIQUE Id_H FROM rela_house_element";
 		$query = $this->connexion->prepare($sql);
 		$query->execute();
-		$houses=$query->fetch();
-		foreach($houses as $house){
+		$houses=array_values($query->fetch());
+		for ($i = 0; $i<count($houses); $i++){
 			$sql ="SELECT Image_E FROM 'element' INNER JOIN 'rela_house_element' ON 'rela_house_element'.Id_E= 'element'.Id_E	WHERE 'rela_house_element'.Id_H=?";
 			$query = $this->connexion->prepare($sql);
-			$query->execute(array($house));
-			$elements=$query->fetch();
-		} 
+			$query->execute(array($houses[i]));
+			$elements[i]=array_values($query->fetch());
+			for ($j = 0; $j<count($elements[i]); $j++){
+				$elements[i][j] = preg_match("#/[A-Za-z0-9]+\"#", $elements[i][j], $match);
+				$s=$match[0];
+				$s=ltrim($s,"\/");
+				$s=rtrim($s,'"');
+				$elements[i][j] = $s;
+			}
+		}
+
 		return $elements;
 	}
+
+
 
 }
