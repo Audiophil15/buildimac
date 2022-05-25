@@ -1,7 +1,7 @@
 <?php
 class HouseController extends Controller{
 
-	function addAHouse($form) {
+	public function addAHouse($form) {
 
 		$this->loadModel("House");
 
@@ -14,7 +14,7 @@ class HouseController extends Controller{
 		//return json_encode(addPlanet($planet['nom'], $planet['carac']));
 	}
 
-	function score($form){
+	public function score($form){
 		$this->loadModel("House");
 
 		$house = json_decode($form,true);
@@ -23,5 +23,12 @@ class HouseController extends Controller{
 
 		return json_encode($scores);
 	}
+
+	public function allHouse(){
+		$this->loadModel("House");
+		$houses = $this->House->getAllHouse();
+		return json_encode($houses);
+	}
+	
 
 }

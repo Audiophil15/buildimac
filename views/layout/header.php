@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="\buildimac\css\game.css" type="text/css" />
     <link rel="stylesheet" href="\buildimac\css\style.css" type="text/css" />
-	<title><?= $title ?></title>
+	<link rel="stylesheet" href="\buildimac\css\gallery.css" type="text/css" />
+	
 </head>
 <body>
 	<header>
@@ -17,7 +18,7 @@
    			 { ?>
 				<a href="\buildimac\type">Elements</a>
 			<?php } ?>
-			<a href="">Galerie</a>
+			<a href="\buildimac\views\gallery.php">Galerie</a>
 			<a href="\buildimac\game\play">Créer une maison</a>
 		</div>
 	</nav>

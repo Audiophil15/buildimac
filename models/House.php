@@ -63,5 +63,23 @@ class House extends Model
 		}
 	
 		return $scoreTab;
-}
+	}
+
+	public function getAllHouse(){
+		$houseElement = [];
+		$sql = "SELECT DISTINCT Id_H FROM rela_house_element";
+        $query = $this->connexion->prepare($sql);
+        $query->execute();
+        $houses=$query->fetchAll();
+		foreach($houses as $house){
+			$sql2 =  "SELECT Image_E FROM element INNER JOIN rela_house_element ON rela_house_element.Id_E= element.Id_E WHERE rela_house_element.Id_H=?";
+			$query2 = $this->connexion->prepare($sql2);
+            $query2->execute(array($house["Id_H"]));
+			$elements=$query2->fetchAll(PDO::FETCH_COLUMN, 0);
+			array_push($houseElement, $elements);
+		};
+
+		return $houseElement;
+	}
+
 }
