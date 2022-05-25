@@ -18,7 +18,7 @@ switch ($urlParams[2]) {
 		$controller = new HouseController();
 		switch($method) {
 			case 'GET' :
-
+				echo $controller->galleryJson();
 				break;
 
 			case 'POST' :

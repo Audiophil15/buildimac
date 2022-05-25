@@ -46,7 +46,6 @@ class ElementController extends Controller{
 
                 $resultat = move_uploaded_file($array[6], $chemin);
 								
-				$array[1] = "\"../images/".$array[1]."\"";
 				$this->Element->add($array);
 				
 				echo "<script>alert('Element ajouté')</script>";
@@ -80,7 +79,6 @@ class ElementController extends Controller{
 
 					$resultat = move_uploaded_file($array[6], $chemin);
 									
-					$array[1] = "\"../images/".$array[1]."\"";
 					$this->Element->modify($array);
 					
 					echo "<script>alert('Element modifié')</script>";

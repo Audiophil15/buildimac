@@ -17,7 +17,7 @@
    			 { ?>
 				<a href="\buildimac\type">Elements</a>
 			<?php } ?>
-			<a href="">Galerie</a>
+			<a href="\buildimac\house">Galerie</a>
 			<a href="\buildimac\game\play">Créer une maison</a>
 		</div>
 	</nav>

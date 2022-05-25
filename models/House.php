@@ -37,31 +37,34 @@ class House extends Model
 		$query = $this->connexion->prepare($sql);
 		$query->execute(array($lastId, $terrain));
 
+		/*$sql = "INSERT INTO rela_house_element (".$lastId. " ,Id_E) VALUES (?); ";
+		$query = $this->connexion->prepare($sql);
+		$query->execute(array($array[6]));*/
+
 	}
 
-	public function getScore($toit, $mur, $fenetre, $porte, $terrain){
-		$roofCoeffs = array(30,30,40,0,20,50,0,0,0);
-		$wallCoeffs = array(40,30,40,70,30,50,0,0,40);
-		$windowsCoeffs = array(10,20,15,0,0,0,100,0,15);
-		$doorCoeffs = array(5,20,5,0,0,0,0,20,15);
-		$groundCoeffs = array(15,0,0,30,50,0,0,80,30);
-		$coeffsTab = array($roofCoeffs, $wallCoeffs, $windowsCoeffs, $doorCoeffs, $groundCoeffs);
-
-		$idTab = array($toit, $mur, $fenetre, $porte, $terrain);
-	
-		$scoreTab = array(0,0,0,0,0,0,0,0,0);
-	
-		for ($i=1; $i<=9; $i++){
-			for($id = 0; $id<5; $id++){
-				$sql = "SELECT Points FROM rela_indicator_element WHERE (Id_I=? AND Id_E=?)";
-				$query = $this->connexion->prepare($sql);
-				$query->execute(array($i, $idTab[$id]));
-				$result=$query->fetch(PDO::FETCH_ASSOC);
-				$scoreTab[$i-1] += $result["Points"]*$coeffsTab[$id][$i-1];
-	
+	public function getHousesElements()
+	{
+		$sql = "SELECT DISTINCT Id_H FROM rela_house_element";
+		$query = $this->connexion->prepare($sql);
+		$query->execute();
+		$houses=array_values($query->fetchAll());
+		for ($i = 0; $i<count($houses); $i++){
+			$sql ="SELECT Image_E FROM 'element' INNER JOIN 'rela_house_element' ON 'rela_house_element'.Id_E= 'element'.Id_E	WHERE 'rela_house_element'.Id_H=?";
+			$query = $this->connexion->prepare($sql);
+			$query->execute(array($houses[$i]['Id_H']));
+			var_dump($houses[$i]['Id_H']);
+			$elements=array_values($query->fetchAll());
+			var_dump($elements['Image_E']);
+			for ($j = 0; $j<count($elements[$i]); $j++){
+				$elements[$i][$j] = preg_match("#/[A-Za-z0-9]+\"#", $elements[$i][$j], $match);
+				$s=$match[0];
+				$s=ltrim($s,"\/");
+				$s=rtrim($s,'"');
+				$elements[$i][$j] = $s;
 			}
 		}
-	
-		return $scoreTab;
-}
+		return $elements;
+	}
+
 }
