@@ -1,0 +1,55 @@
+.house-wrapper{
+	/* margin-bottom: 50px;*/
+	
+	position:relative;
+	width:50%;
+}
+
+.house-element{
+	overflow: hidden;
+	/*position:absolute;*/
+	top: 0;
+	z-index:1
+}
+
+.house-toit, .house-mur, .house-fenetre, .house-porte, .house-terrain{
+
+	width: 100%;
+}
+
+.house-toit{
+	position:absolute;
+	top:14%;
+	transform: scale(0.6);
+	z-index:5;
+}
+
+.house-mur{
+	transform: scale(0.57);
+	z-index:3;
+	position:absolute;
+	left:2%;
+	top:20%;
+}
+
+.house-fenetre{
+	transform: scale(0.6);
+	z-index:5;
+	position:absolute;
+	left:33%;
+	top:40%;
+}
+
+.house-porte{
+	transform: scale(0.6);
+	z-index:5;
+	position:absolute;
+	left:15%;
+	top:40%;
+}
+
+.house-terrain{
+	transform: scale(0.6);
+	z-index:2;
+	
+}

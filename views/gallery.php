@@ -1,14 +1,10 @@
-<?php 
-	require("controllers/HouseController.php");
-?>
 
-<div class="gallery">
-<?php 
-$elements = getHousesElements();
-foreach ($houses as $house => $elements) {
-	foreach ($elements as $element) {
-		?>
-		<img src="images/<?= $element?>" class="">
-	}
-}
+<?php include_once("layout/header.php"); ?>
+
+<div class="contain">
+	<div class="all" id="all">
+	
+	</div>
 </div>
+
+<script type='text/javascript' src='/buildimac/gallery.js'></script>
