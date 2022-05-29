@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="one_image">
-			<img src=<?= $element['Image_E'] ?>>
+			<img src=../images/<?= $element['Image_E'] ?>>
 		</div>
 	</div>
 	<?php } ?>

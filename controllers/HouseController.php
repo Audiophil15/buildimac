@@ -9,16 +9,19 @@ class HouseController extends Controller{
 		//echo gettype($house);
 		$houses = $this->House->addHouse($house["date"], $house["toit"], $house["mur"], $house["fenetre"], $house["porte"], $house["terrain"]);
 
+
+		
 		//return json_encode(addPlanet($planet['nom'], $planet['carac']));
 	}
 
 	public function score($form){
 		$this->loadModel("House");
-		$elements = $this->House->getHousesElements();
-		$json = json_encode($elements, true);
-		echo "--";
-		echo $json;
-		return $json;
+
+		$house = json_decode($form,true);
+		//echo gettype($house);
+		$scores = $this->House->getScore($house["toit"], $house["mur"], $house["fenetre"], $house["porte"], $house["terrain"]);
+
+		return json_encode($scores);
 	}
 
 	public function allHouse(){

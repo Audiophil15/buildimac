@@ -52,17 +52,6 @@ gameBtn.addEventListener('click', (event) => {
 
 				document.documentElement.style.setProperty('--end-secu', data[8]/10+"%" );
 
-				/*content+= " Esthetique : " + data[0];
-				content+= " Isolation thermique : " + data[1];
-				content+= " Isolation sonore : " + data[2];
-				content+= " Solidité : " + data[3];
-				content+= " Résistance au feu : " + data[4];
-				content+= " Etanchéité : " + data[5];
-				content+= " Luminosité : " + data[6];
-				content+= " Accessibilité : " + data[7];
-				content+= " Securité : " + data[8];*/
-			
-				/*container.innerHTML = content;*/
 				gameContainer.style.display = "none";
 				loader.style.display = "block";
 				setTimeout(function(){ 

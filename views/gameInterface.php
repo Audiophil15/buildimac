@@ -103,7 +103,7 @@
         for ($i = 0; $i < count($toits); $i++) { ?>
 
           <div class="toit" data-num="<?= $toits[$i]['Id_E'] ?>">
-            <img src=<?= $toits[$i]['Image_E'] ?>>
+            <img src=../images/<?= $toits[$i]['Image_E'] ?>>
           </div>
 
         <?php } ?>
@@ -116,7 +116,7 @@
         for ($i = 0; $i < count($murs); $i++) { ?>
 
           <div class="mur" data-num="<?= $murs[$i]['Id_E'] ?>">
-            <img src=<?= $murs[$i]['Image_E'] ?>>
+            <img src=../images/<?= $murs[$i]['Image_E'] ?>>
           </div>
 
         <?php } ?>
@@ -129,7 +129,7 @@
         for ($i = 0; $i < count($fenetres); $i++) { ?>
 
           <div class="fenetre" data-num="<?= $fenetres[$i]['Id_E'] ?>">
-            <img src=<?= $fenetres[$i]['Image_E'] ?>>
+            <img src=../images/<?= $fenetres[$i]['Image_E'] ?>>
           </div>
 
         <?php } ?>
@@ -141,7 +141,7 @@
         <?php
         for ($i = 0; $i < count($portes); $i++) { ?>
           <div class="porte" data-num="<?= $portes[$i]['Id_E'] ?>">
-            <img src=<?= $portes[$i]['Image_E'] ?>>
+            <img src=../images/<?= $portes[$i]['Image_E'] ?>>
           </div>
 
         <?php } ?>
@@ -152,7 +152,7 @@
         <?php
         for ($i = 0; $i < count($terrains); $i++) { ?>
           <div class="terrain" data-num="<?= $terrains[$i]['Id_E'] ?>">
-            <img src=<?= $terrains[$i]['Image_E'] ?>>
+            <img src=../images/<?= $terrains[$i]['Image_E'] ?>>
           </div>
 
         <?php } ?>
@@ -182,13 +182,7 @@
   let houseContainer;
 
   window.addEventListener("resize", (e) => {
-    //console.log("jszdkefg");
     houseContainer = document.getElementById('house-container');
-    //houseContainer.style.height = "600px";
-    //houseContainer.style.height = parseInt(houseContainer.offsetWidth) * 0.63+"px";
-    //$(".support-wrapper").css("height", parseInt($(".support-wrapper").css("width")) * 0.63);
-
-    //console.log(houseContainer.offsetHeight)
 
   });
 

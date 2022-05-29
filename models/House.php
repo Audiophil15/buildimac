@@ -37,10 +37,6 @@ class House extends Model
 		$query = $this->connexion->prepare($sql);
 		$query->execute(array($lastId, $terrain));
 
-		/*$sql = "INSERT INTO rela_house_element (".$lastId. " ,Id_E) VALUES (?); ";
-		$query = $this->connexion->prepare($sql);
-		$query->execute(array($array[6]));*/
-
 	}
 
 	public function getScore($toit, $mur, $fenetre, $porte, $terrain){

@@ -22,14 +22,12 @@ switch ($urlParams[2]) {
 				break;
 
 			case 'POST' :
-				$array = file_get_contents('php://input');
-				/*$array = array($_POST['date'] , $_POST['toit'] , $_POST['mur'] , $_POST['fenetre'], $_POST['porte'], $_POST['terrain'])*/; 
+				$array = file_get_contents('php://input'); 
 				$controller->addAHouse($array);
 				break;
 
 			default:
 				http_response_code('404');
-				//echo 'OOPS';
 		}
 		break;
 
@@ -87,17 +85,17 @@ switch ($urlParams[2]) {
 					}
 					break;
 
+				case '':
+					$controller->index();
+					break;
+					
 				case $urlParams[3] > 0:
 					$controller->read($urlParams[3]);
 					break;					
 
-				case '':
-					$controller->index();
-					break;
 
 				default:
 					http_response_code('404');
-					//echo 'unknown endpoint';
 			}
 		} else {
 			$controller->index();
@@ -148,7 +146,6 @@ switch ($urlParams[2]) {
 
 	default:
 		http_response_code('500');
-		//echo 'unknown endpoint';
 		break;
 }
 

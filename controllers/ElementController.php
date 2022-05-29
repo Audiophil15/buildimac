@@ -42,7 +42,7 @@ class ElementController extends Controller{
         if($array[4] <= $tailleMax){
             $extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
             if(in_array($extensionFichier, $extension)){
-                $chemin = "C:\Users\lauri\Desktop\\xampp\htdocs\buildimac\images\\".$array[1];
+				$chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
 
                 $resultat = move_uploaded_file($array[6], $chemin);
 								
@@ -69,35 +69,10 @@ class ElementController extends Controller{
 
 	public function modify_element($array){
 		$this->loadModel("Element");
-		if($array[4] != NULL){
-			$tailleMax = 2097152 ; 
-			$extension = array('jpg', 'jpeg', 'png');
-			if($array[4] <= $tailleMax){
-				$extensionFichier = strtolower(substr(strrchr($array[5], '.'), 1)); 
-				if(in_array($extensionFichier, $extension)){
-					$chemin = "C:\\xampp\htdocs\buildimac\images\\".$array[1];
-
-					$resultat = move_uploaded_file($array[6], $chemin);
-									
-					$this->Element->modify($array);
-					
-					echo "<script>alert('Element modifié')</script>";
-					echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
-				}else { 
-					echo "<script>alert('Votre image doit être en format jpg, jpeg ou png')</script>";
-					echo "<script>window.location.href=\"/buildimac/element/modify/".$array[7]."\";</script>" ; 
-				}
-			} else { 
-				echo "<script>alert('Votre image ne doit pas dépasser 2Mo')</script>";
-				echo "<script>window.location.href=\"/buildimac/element/modify/".$array[7]."\";</script>" ;  
-			}
-		} else{
-			$this->Element->modify($array);
-				
-			echo "<script>alert('Element modifié')</script>";
-			echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
-		}
-
+		$this->Element->modify($array);	
+		echo "<script>alert('Element modifié')</script>";
+		echo "<script>window.location.href=\"/buildimac/element\";</script>" ;
+		
 	}
 
 	public function read(int $id){

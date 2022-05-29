@@ -1,5 +1,7 @@
 
-<?php include_once("layout/header.php"); ?>
+<?php 
+require("../config/session_start.php");
+include_once("layout/header.php"); ?>
 
 <div class="contain">
 	<div class="all" id="all">
